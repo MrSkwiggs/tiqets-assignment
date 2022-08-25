@@ -11,7 +11,13 @@
 		8D1BF33C28B80F1800639CFE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BF33B28B80F1800639CFE /* ContentView.swift */; };
 		8D1BF33E28B80F1A00639CFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D1BF33D28B80F1A00639CFE /* Assets.xcassets */; };
 		8D1BF34128B80F1A00639CFE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D1BF34028B80F1A00639CFE /* Preview Assets.xcassets */; };
+		8D1BF35128B80F6800639CFE /* TiqetsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BF35028B80F6800639CFE /* TiqetsAPI.swift */; };
 		8D1BF35728B80F9700639CFE /* Netswift in Frameworks */ = {isa = PBXBuildFile; productRef = 8D1BF35628B80F9700639CFE /* Netswift */; };
+		8D1BF35B28B811A600639CFE /* Offerings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BF35A28B811A600639CFE /* Offerings.swift */; };
+		8D1BF35D28B812C300639CFE /* TiqetsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BF35C28B812C300639CFE /* TiqetsEndpoint.swift */; };
+		8D1BF36128B814C200639CFE /* Offering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BF36028B814C200639CFE /* Offering.swift */; };
+		8D1BF36428B8153F00639CFE /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BF36328B8153F00639CFE /* Venue.swift */; };
+		8D1BF36628B8157600639CFE /* Exhibition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BF36528B8157600639CFE /* Exhibition.swift */; };
 		8D1BF36828B819C600639CFE /* libNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1BF34E28B80F6800639CFE /* libNetworking.a */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +50,13 @@
 		8D1BF33D28B80F1A00639CFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D1BF34028B80F1A00639CFE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8D1BF34E28B80F6800639CFE /* libNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1BF35028B80F6800639CFE /* TiqetsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiqetsAPI.swift; sourceTree = "<group>"; };
+		8D1BF35A28B811A600639CFE /* Offerings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offerings.swift; sourceTree = "<group>"; };
+		8D1BF35C28B812C300639CFE /* TiqetsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiqetsEndpoint.swift; sourceTree = "<group>"; };
+		8D1BF35F28B8143100639CFE /* offerings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = offerings.json; sourceTree = "<group>"; };
+		8D1BF36028B814C200639CFE /* Offering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offering.swift; sourceTree = "<group>"; };
+		8D1BF36328B8153F00639CFE /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		8D1BF36528B8157600639CFE /* Exhibition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exhibition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +120,47 @@
 		8D1BF34F28B80F6800639CFE /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				8D1BF35E28B8141200639CFE /* Local */,
+				8D1BF35928B8118200639CFE /* Endpoints */,
+				8D1BF35828B8114300639CFE /* Models */,
+				8D1BF35028B80F6800639CFE /* TiqetsAPI.swift */,
+				8D1BF35C28B812C300639CFE /* TiqetsEndpoint.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		8D1BF35828B8114300639CFE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8D1BF36228B8153400639CFE /* Offering */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8D1BF35928B8118200639CFE /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				8D1BF35A28B811A600639CFE /* Offerings.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		8D1BF35E28B8141200639CFE /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				8D1BF35F28B8143100639CFE /* offerings.json */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		8D1BF36228B8153400639CFE /* Offering */ = {
+			isa = PBXGroup;
+			children = (
+				8D1BF36028B814C200639CFE /* Offering.swift */,
+				8D1BF36328B8153F00639CFE /* Venue.swift */,
+				8D1BF36528B8157600639CFE /* Exhibition.swift */,
+			);
+			path = Offering;
 			sourceTree = "<group>";
 		};
 		8D1BF36728B819C600639CFE /* Frameworks */ = {
@@ -227,6 +279,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D1BF35D28B812C300639CFE /* TiqetsEndpoint.swift in Sources */,
+				8D1BF36428B8153F00639CFE /* Venue.swift in Sources */,
+				8D1BF36628B8157600639CFE /* Exhibition.swift in Sources */,
+				8D1BF36128B814C200639CFE /* Offering.swift in Sources */,
+				8D1BF35128B80F6800639CFE /* TiqetsAPI.swift in Sources */,
+				8D1BF35B28B811A600639CFE /* Offerings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
