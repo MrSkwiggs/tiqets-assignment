@@ -43,7 +43,16 @@
 		8D1BF34028B80F1A00639CFE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 /* Begin PBXFrameworksBuildPhase section */
+		8D1BF34B28B80F6800639CFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D1BF35728B80F9700639CFE /* Netswift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
 		8D1BF32D28B80F1800639CFE = {
 			isa = PBXGroup;
@@ -82,6 +91,7 @@
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
 /* Begin PBXNativeTarget section */
 		8D1BF33528B80F1800639CFE /* Tiqets */ = {
 			isa = PBXNativeTarget;
@@ -104,6 +114,7 @@
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
+
 /* Begin PBXProject section */
 		8D1BF32E28B80F1800639CFE /* Project object */ = {
 			isa = PBXProject;
@@ -129,6 +140,9 @@
 				Base,
 			);
 			mainGroup = 8D1BF32D28B80F1800639CFE;
+			packageReferences = (
+				8D1BF35528B80F9700639CFE /* XCRemoteSwiftPackageReference "Netswift" */,
+			);
 			productRefGroup = 8D1BF33728B80F1800639CFE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -382,3 +396,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8D1BF35528B80F9700639CFE /* XCRemoteSwiftPackageReference "Netswift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MrSkwiggs/Netswift";
+			requirement = {
+				kind = exactVersion;
+				version = 0.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8D1BF35628B80F9700639CFE /* Netswift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D1BF35528B80F9700639CFE /* XCRemoteSwiftPackageReference "Netswift" */;
+			productName = Netswift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 8D1BF32E28B80F1800639CFE /* Project object */;
+}
