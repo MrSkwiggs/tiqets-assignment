@@ -11,6 +11,8 @@
 		8D1BF33C28B80F1800639CFE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BF33B28B80F1800639CFE /* ContentView.swift */; };
 		8D1BF33E28B80F1A00639CFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D1BF33D28B80F1A00639CFE /* Assets.xcassets */; };
 		8D1BF34128B80F1A00639CFE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D1BF34028B80F1A00639CFE /* Preview Assets.xcassets */; };
+		8D1BF35728B80F9700639CFE /* Netswift in Frameworks */ = {isa = PBXBuildFile; productRef = 8D1BF35628B80F9700639CFE /* Netswift */; };
+		8D1BF36828B819C600639CFE /* libNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1BF34E28B80F6800639CFE /* libNetworking.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +43,18 @@
 		8D1BF33B28B80F1800639CFE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8D1BF33D28B80F1A00639CFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D1BF34028B80F1A00639CFE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8D1BF34E28B80F6800639CFE /* libNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		8D1BF33328B80F1800639CFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D1BF36828B819C600639CFE /* libNetworking.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D1BF34B28B80F6800639CFE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -58,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1BF33828B80F1800639CFE /* Tiqets */,
+				8D1BF34F28B80F6800639CFE /* Networking */,
 				8D1BF33728B80F1800639CFE /* Products */,
 				8D1BF36728B819C600639CFE /* Frameworks */,
 			);
@@ -67,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1BF33628B80F1800639CFE /* Tiqets.app */,
+				8D1BF34E28B80F6800639CFE /* libNetworking.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,6 +102,20 @@
 				8D1BF34028B80F1A00639CFE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8D1BF34F28B80F6800639CFE /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		8D1BF36728B819C600639CFE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +140,26 @@
 			productName = Tiqets;
 			productReference = 8D1BF33628B80F1800639CFE /* Tiqets.app */;
 			productType = "com.apple.product-type.application";
+		};
+		8D1BF34D28B80F6800639CFE /* Networking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D1BF35228B80F6800639CFE /* Build configuration list for PBXNativeTarget "Networking" */;
+			buildPhases = (
+				8D1BF34A28B80F6800639CFE /* Sources */,
+				8D1BF34B28B80F6800639CFE /* Frameworks */,
+				8D1BF34C28B80F6800639CFE /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Networking;
+			packageProductDependencies = (
+				8D1BF35628B80F9700639CFE /* Netswift */,
+			);
+			productName = Networking;
+			productReference = 8D1BF34E28B80F6800639CFE /* libNetworking.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -148,6 +196,7 @@
 			projectRoot = "";
 			targets = (
 				8D1BF33528B80F1800639CFE /* Tiqets */,
+				8D1BF34D28B80F6800639CFE /* Networking */,
 			);
 		};
 /* End PBXProject section */
@@ -174,7 +223,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8D1BF34A28B80F6800639CFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8D1BF36A28B819C600639CFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1BF34D28B80F6800639CFE /* Networking */;
+			targetProxy = 8D1BF36928B819C600639CFE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		8D1BF34228B80F1A00639CFE /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -391,6 +456,15 @@
 			buildConfigurations = (
 				8D1BF34528B80F1A00639CFE /* Debug */,
 				8D1BF34628B80F1A00639CFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D1BF35228B80F6800639CFE /* Build configuration list for PBXNativeTarget "Networking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D1BF35328B80F6800639CFE /* Debug */,
+				8D1BF35428B80F6800639CFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
