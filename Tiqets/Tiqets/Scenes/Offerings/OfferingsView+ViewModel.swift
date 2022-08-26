@@ -39,6 +39,7 @@ extension OfferingsView {
                     switch state {
                     case .initial, .loading:
                         self.isLoading = true
+                        self.hasError = false
                         
                     case .success(let response):
                         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
@@ -49,11 +50,17 @@ extension OfferingsView {
                         }
                         
                     case .failure:
-                        self.hasError = true
-                        self.isLoading = false
+                        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+                            self.hasError = true
+                            self.isLoading = false
+                        }
                     }
                 }
                 .store(in: &subscriptions)
+        }
+        
+        func userDidTapRetryButton() {
+            offeringProvider.refresh()
         }
     }
 }
