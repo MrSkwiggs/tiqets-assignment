@@ -14,8 +14,6 @@ struct RootView: View {
     var viewModelProvider: ViewModelProvider
     
     var body: some View {
-        
-        
         NavigationView {
             TabView {
                 OfferingsView(viewModel: viewModelProvider.offeringsViewModel)
@@ -35,5 +33,6 @@ struct RootView: View {
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
         RootView()
+            .environmentObject(ViewModelProvider(root: .mock))
     }
 }
