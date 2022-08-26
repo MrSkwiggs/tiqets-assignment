@@ -14,4 +14,8 @@ class ViewModelProvider: ObservableObject {
     init(root: Composition) {
         self.root = root
     }
+    
+    var offeringsViewModel: OfferingsView.ViewModel {
+        .init()
+    }
 }
