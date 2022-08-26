@@ -9,14 +9,18 @@ import SwiftUI
 import SFSafeSymbols
 
 struct RootView: View {
+    
+    @EnvironmentObject
+    var viewModelProvider: ViewModelProvider
+    
     var body: some View {
         
         
         NavigationView {
             TabView {
-                OfferingsView()
+                OfferingsView(viewModel: viewModelProvider.offeringsViewModel)
                     .tabItem {
-                        Label("Offerings", systemSymbol: .location)
+                        Label("Offerings", systemSymbol: .listBullet)
                     }
                 Text("Favorites")
                     .tabItem {
