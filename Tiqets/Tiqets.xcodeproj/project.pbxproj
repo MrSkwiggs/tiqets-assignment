@@ -11,6 +11,12 @@
 		8D0DD5A028B9134E00F10ACD /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D67ED7528B8E2FC0030271F /* Networking.framework */; };
 		8D0DD5A128B9134E00F10ACD /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8D67ED7528B8E2FC0030271F /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8D0DD5A728B915D900F10ACD /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0DD5A628B915D900F10ACD /* Placeholder.swift */; };
+		8D0DD5A928B927D600F10ACD /* OfferingProviderUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0DD5A828B927D600F10ACD /* OfferingProviderUseCase.swift */; };
+		8D0DD5AC28B92ABA00F10ACD /* NetswiftResponsePublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0DD5AB28B92ABA00F10ACD /* NetswiftResponsePublisher.swift */; };
+		8D0DD5AF28B92CB400F10ACD /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0DD5AE28B92CB400F10ACD /* State.swift */; };
+		8D0DD5B128B92DE500F10ACD /* NetswiftResponseSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0DD5B028B92DE500F10ACD /* NetswiftResponseSubject.swift */; };
+		8D0DD5B528B9386700F10ACD /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0DD5B428B9386700F10ACD /* Card.swift */; };
+		8D0DD5B728B9456600F10ACD /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0DD5B628B9456600F10ACD /* Mock.swift */; };
 		8D1BF33E28B80F1A00639CFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D1BF33D28B80F1A00639CFE /* Assets.xcassets */; };
 		8D1BF34128B80F1A00639CFE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D1BF34028B80F1A00639CFE /* Preview Assets.xcassets */; };
 		8D67ED7B28B8E2FC0030271F /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D67ED7528B8E2FC0030271F /* Networking.framework */; };
@@ -89,6 +95,12 @@
 
 /* Begin PBXFileReference section */
 		8D0DD5A628B915D900F10ACD /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
+		8D0DD5A828B927D600F10ACD /* OfferingProviderUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferingProviderUseCase.swift; sourceTree = "<group>"; };
+		8D0DD5AB28B92ABA00F10ACD /* NetswiftResponsePublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetswiftResponsePublisher.swift; sourceTree = "<group>"; };
+		8D0DD5AE28B92CB400F10ACD /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		8D0DD5B028B92DE500F10ACD /* NetswiftResponseSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetswiftResponseSubject.swift; sourceTree = "<group>"; };
+		8D0DD5B428B9386700F10ACD /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		8D0DD5B628B9456600F10ACD /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		8D1BF33628B80F1800639CFE /* Tiqets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tiqets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1BF33D28B80F1A00639CFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D1BF34028B80F1A00639CFE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -147,8 +159,27 @@
 			isa = PBXGroup;
 			children = (
 				8D0DD5A628B915D900F10ACD /* Placeholder.swift */,
+				8D0DD5B428B9386700F10ACD /* Card.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8D0DD5AA28B92AA600F10ACD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8D0DD5AD28B92C4900F10ACD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8D0DD5AB28B92ABA00F10ACD /* NetswiftResponsePublisher.swift */,
+				8D0DD5B028B92DE500F10ACD /* NetswiftResponseSubject.swift */,
+				8D0DD5AE28B92CB400F10ACD /* State.swift */,
+				8D0DD5B628B9456600F10ACD /* Mock.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		8D1BF32D28B80F1800639CFE = {
@@ -252,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				8D67ED9B28B8FCF50030271F /* NetworkPathMonitorUseCase.swift */,
+				8D0DD5A828B927D600F10ACD /* OfferingProviderUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -259,6 +291,8 @@
 		8D67EDA328B8FF680030271F /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				8D0DD5AD28B92C4900F10ACD /* Models */,
+				8D0DD5AA28B92AA600F10ACD /* Extensions */,
 				8D67ED9A28B8FAAD0030271F /* UseCases */,
 				8D67ED9828B8FA370030271F /* Composition.swift */,
 			);
@@ -469,6 +503,7 @@
 				8D67EDC028B905BE0030271F /* AppDelegate.swift in Sources */,
 				8D67EDB028B9005D0030271F /* SceneDelegate.swift in Sources */,
 				8D0DD5A728B915D900F10ACD /* Placeholder.swift in Sources */,
+				8D0DD5B528B9386700F10ACD /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +527,11 @@
 			files = (
 				8D67EDAE28B900190030271F /* NetworkPathMonitorUseCase.swift in Sources */,
 				8D67EDAD28B8FF720030271F /* Composition.swift in Sources */,
+				8D0DD5A928B927D600F10ACD /* OfferingProviderUseCase.swift in Sources */,
+				8D0DD5B728B9456600F10ACD /* Mock.swift in Sources */,
+				8D0DD5AF28B92CB400F10ACD /* State.swift in Sources */,
+				8D0DD5AC28B92ABA00F10ACD /* NetswiftResponsePublisher.swift in Sources */,
+				8D0DD5B128B92DE500F10ACD /* NetswiftResponseSubject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,7 +679,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Tiqets/Preview Content\"";
-				DEVELOPMENT_TEAM = 96Y2K9J65M;
+				DEVELOPMENT_TEAM = 45V7YBK65N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -668,7 +708,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Tiqets/Preview Content\"";
-				DEVELOPMENT_TEAM = 96Y2K9J65M;
+				DEVELOPMENT_TEAM = 45V7YBK65N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
