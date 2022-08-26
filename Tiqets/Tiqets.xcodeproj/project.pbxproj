@@ -17,6 +17,9 @@
 		8D0DD5B128B92DE500F10ACD /* NetswiftResponseSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0DD5B028B92DE500F10ACD /* NetswiftResponseSubject.swift */; };
 		8D0DD5B528B9386700F10ACD /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0DD5B428B9386700F10ACD /* Card.swift */; };
 		8D0DD5B728B9456600F10ACD /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0DD5B628B9456600F10ACD /* Mock.swift */; };
+		8D0DD5B928B947EC00F10ACD /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0DD5B828B947EC00F10ACD /* DetailView.swift */; };
+		8D0DD5BC28B94A5C00F10ACD /* DetailView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0DD5BB28B94A5C00F10ACD /* DetailView+ViewModel.swift */; };
+		8D0DD5BE28B94F2900F10ACD /* Mock+Offering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0DD5BD28B94F2900F10ACD /* Mock+Offering.swift */; };
 		8D1BF33E28B80F1A00639CFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D1BF33D28B80F1A00639CFE /* Assets.xcassets */; };
 		8D1BF34128B80F1A00639CFE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D1BF34028B80F1A00639CFE /* Preview Assets.xcassets */; };
 		8D67ED7B28B8E2FC0030271F /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D67ED7528B8E2FC0030271F /* Networking.framework */; };
@@ -101,6 +104,9 @@
 		8D0DD5B028B92DE500F10ACD /* NetswiftResponseSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetswiftResponseSubject.swift; sourceTree = "<group>"; };
 		8D0DD5B428B9386700F10ACD /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		8D0DD5B628B9456600F10ACD /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
+		8D0DD5B828B947EC00F10ACD /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		8D0DD5BB28B94A5C00F10ACD /* DetailView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailView+ViewModel.swift"; sourceTree = "<group>"; };
+		8D0DD5BD28B94F2900F10ACD /* Mock+Offering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mock+Offering.swift"; sourceTree = "<group>"; };
 		8D1BF33628B80F1800639CFE /* Tiqets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tiqets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1BF33D28B80F1A00639CFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D1BF34028B80F1A00639CFE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -178,8 +184,18 @@
 				8D0DD5B028B92DE500F10ACD /* NetswiftResponseSubject.swift */,
 				8D0DD5AE28B92CB400F10ACD /* State.swift */,
 				8D0DD5B628B9456600F10ACD /* Mock.swift */,
+				8D0DD5BD28B94F2900F10ACD /* Mock+Offering.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8D0DD5BA28B947F000F10ACD /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				8D0DD5B828B947EC00F10ACD /* DetailView.swift */,
+				8D0DD5BB28B94A5C00F10ACD /* DetailView+ViewModel.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		8D1BF32D28B80F1800639CFE = {
@@ -313,6 +329,7 @@
 				8D67EDC228B90D420030271F /* Favorites */,
 				8D67EDBB28B902090030271F /* RootView.swift */,
 				8D67EDC128B90D3C0030271F /* Offerings */,
+				8D0DD5BA28B947F000F10ACD /* Details */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -496,7 +513,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D0DD5BC28B94A5C00F10ACD /* DetailView+ViewModel.swift in Sources */,
 				8D67EDB328B900CB0030271F /* ViewModelProvider.swift in Sources */,
+				8D0DD5B928B947EC00F10ACD /* DetailView.swift in Sources */,
 				8D67EDBC28B902090030271F /* RootView.swift in Sources */,
 				8D67EDBA28B901F60030271F /* OfferingsView.swift in Sources */,
 				8D67EDC428B90D5B0030271F /* OfferingsView+ViewModel.swift in Sources */,
@@ -528,6 +547,7 @@
 				8D67EDAE28B900190030271F /* NetworkPathMonitorUseCase.swift in Sources */,
 				8D67EDAD28B8FF720030271F /* Composition.swift in Sources */,
 				8D0DD5A928B927D600F10ACD /* OfferingProviderUseCase.swift in Sources */,
+				8D0DD5BE28B94F2900F10ACD /* Mock+Offering.swift in Sources */,
 				8D0DD5B728B9456600F10ACD /* Mock.swift in Sources */,
 				8D0DD5AF28B92CB400F10ACD /* State.swift in Sources */,
 				8D0DD5AC28B92ABA00F10ACD /* NetswiftResponsePublisher.swift in Sources */,
