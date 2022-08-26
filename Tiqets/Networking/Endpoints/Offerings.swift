@@ -40,8 +40,8 @@ extension TiqetsAPI.Offerings: TiqetsRoute {
 
 extension TiqetsAPI.Offerings: TiqetsRequest {
     public struct Response: Codable {
-        let venues: [Venue]
-        let exhibitions: [Exhibition]
+        public let venues: [Venue]
+        public let exhibitions: [Exhibition]
         
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: IntermediateContainerCodingKeys.self)
