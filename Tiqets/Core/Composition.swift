@@ -10,22 +10,37 @@ import Networking
 
 public class Composition {
     public let networkPathMonitor: NetworkPathMonitorUseCase
+    public let offeringProvider: OfferingProviderUseCase
     
     public init(tiqetsAPI: TiqetsAPI,
-                networkPathMonitor: NetworkPathMonitorUseCase) {
+                networkPathMonitor: NetworkPathMonitorUseCase,
+                offeringProvider: OfferingProviderUseCase) {
         TiqetsAPI.configure(using: tiqetsAPI)
         self.networkPathMonitor = networkPathMonitor
+        self.offeringProvider = offeringProvider
     }
 }
 
 public extension Composition {
+    
+    /// Main composition root for production environment
     static var main: Composition {
         .init(tiqetsAPI: .main,
-              networkPathMonitor: NetworkPathMonitor())
+              networkPathMonitor: NetworkPathMonitor(),
+              offeringProvider: OfferingProvider())
     }
     
+    /// Uses local values (doesn't depend on API availability) - greater testing & implementation flexibility
     static var debug: Composition {
         .init(tiqetsAPI: .debug,
-              networkPathMonitor: NetworkPathMonitor())
+              networkPathMonitor: NetworkPathMonitor(),
+              offeringProvider: OfferingProvider())
+    }
+    
+    /// Uses mocked data, for a static app state (useful for screenshot & promotional content)
+    static var mock: Composition {
+        .init(tiqetsAPI: .debug,
+              networkPathMonitor: Mock.NetworkPathMonitor(isOnline: true),
+              offeringProvider: Mock.OfferingProvider())
     }
 }
