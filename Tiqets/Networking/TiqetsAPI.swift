@@ -10,11 +10,11 @@ import Netswift
 
 public struct TiqetsAPI {
     
-    #if DEBUG
-    fileprivate static var shared: TiqetsAPI = .init(performer: NetswiftPerformer(requestPerformer: TiqetsAPIHTTPPerformer()))
-    #else
     fileprivate static var shared: TiqetsAPI = .init()
-    #endif
+    
+    public static func configure(using sharedInstance: TiqetsAPI) {
+        shared = sharedInstance
+    }
     
     private let performer: NetswiftNetworkPerformer
     
@@ -51,3 +51,12 @@ public extension NetswiftRequestPerformable where Self: TiqetsEndpoint {
     }
 }
 
+public extension TiqetsAPI {
+    static var main: TiqetsAPI {
+        .init()
+    }
+    
+    static var debug: TiqetsAPI {
+        .init(performer: NetswiftPerformer(requestPerformer: TiqetsAPIHTTPPerformer()))
+    }
+}
