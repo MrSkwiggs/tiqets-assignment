@@ -67,3 +67,13 @@ public class NetworkPathMonitor: NetworkPathMonitorUseCase {
         
     }
 }
+
+public extension Mock {
+    class NetworkPathMonitor: NetworkPathMonitorUseCase {
+        public var isConnectedToTheInternetSubject: CurrentValueSubject<Bool, Never>
+        
+        init(isOnline: Bool) {
+            self.isConnectedToTheInternetSubject = .init(isOnline)
+        }
+    }
+}
