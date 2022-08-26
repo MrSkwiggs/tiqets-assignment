@@ -29,3 +29,21 @@ public extension TiqetsRequest where Self: TiqetsRoute {
         return .success(request)
     }
 }
+
+public extension TiqetsRequest  where IncomingType == Data, Response: Decodable {
+    func deserialise(_ incomingData: IncomingType) -> NetswiftResult<Response> {
+        do {
+            let decoder = JSONDecoder()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            decoder.dateDecodingStrategy = .formatted(dateFormatter)
+            let decodedResponse = try decoder.decode(Response.self, from: incomingData)
+            return .success(decodedResponse)
+            
+        } catch let error as DecodingError {
+            return .failure(.init(category: .responseDecodingError(error: error), payload: incomingData))
+        } catch {
+            return .failure(.init(category: .unexpectedResponseError, payload: incomingData))
+        }
+    }
+}
