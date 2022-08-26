@@ -15,6 +15,8 @@ public protocol OfferingProviderUseCase {
     typealias Offering = TiqetsAPI.Offerings.Response
     
     var offeringsPublisher: NetswiftResponsePublisher<Offering> { get }
+    
+    func refresh()
 }
 
 public class OfferingProvider: OfferingProviderUseCase {
@@ -30,7 +32,7 @@ public class OfferingProvider: OfferingProviderUseCase {
     
     init() {}
     
-    private func refresh() {
+    public func refresh() {
         offeringsSubject.send(.loading)
         
         TiqetsAPI.Offerings.getAll.perform { [weak self] response in
@@ -45,10 +47,19 @@ public extension Mock {
         
         public typealias Offering = TiqetsAPI.Offerings.Response
         
-        public var offeringsPublisher: NetswiftResponsePublisher<Offering>
+        private var offeringsSubject: NetswiftResponseSubject<Offering> = .init(.initial)
+        private let state: State<Offering, NetswiftError>
+        
+        public lazy var offeringsPublisher: NetswiftResponsePublisher<Offering> = { offeringsSubject.eraseToAnyPublisher() }()
         
         public init(state: State<Offering, NetswiftError> = .success(value: .mock)) {
-            offeringsPublisher = CurrentValueSubject(state).eraseToAnyPublisher()
+            self.state = state
+            self.offeringsSubject = .init(state)
+        }
+        
+        public func refresh() {
+            offeringsSubject.send(.loading)
+            offeringsSubject.send(state)
         }
     }
 }
