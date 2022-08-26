@@ -15,34 +15,63 @@ struct OfferingsView: View {
     var viewModel: ViewModel
     
     var body: some View {
-        ScrollView {
-            section(title: "Venues") {
-                LazyVStack(spacing: 16) {
-                    ForEach(viewModel.venues) { venue in
-                        NavigationLink {
-                            DetailView(viewModel: .init(venue))
-                        } label: {
-                            Card(imageURL: venue.imageURL,
-                                 title: venue.name,
-                                 currency: venue.currency,
-                                 price: venue.price)
+        ZStack {
+            ScrollView {
+                section(title: "Venues") {
+                    LazyVStack(spacing: 16) {
+                        ForEach(viewModel.venues) { venue in
+                            NavigationLink {
+                                DetailView(viewModel: .init(venue))
+                            } label: {
+                                Card(imageURL: venue.imageURL,
+                                     title: venue.name,
+                                     currency: venue.currency,
+                                     price: venue.price)
+                            }
+                        }
+                    }
+                }
+                
+                section(title: "Exhibitions") {
+                    LazyVStack(spacing: 16) {
+                        ForEach(viewModel.exhibitions) { exhibition in
+                            NavigationLink {
+                                DetailView(viewModel: .init(exhibition))
+                            } label: {
+                                Card(imageURL: exhibition.imageURL,
+                                     title: exhibition.name,
+                                     currency: exhibition.currency,
+                                     price: exhibition.price)
+                            }
                         }
                     }
                 }
             }
             
-            section(title: "Exhibitions") {
-                LazyVStack(spacing: 16) {
-                    ForEach(viewModel.exhibitions) { exhibition in
-                        NavigationLink {
-                            DetailView(viewModel: .init(exhibition))
-                        } label: {
-                            Card(imageURL: exhibition.imageURL,
-                                 title: exhibition.name,
-                                 currency: exhibition.currency,
-                                 price: exhibition.price)
+            if viewModel.hasError {
+                ZStack {
+                    Rectangle()
+                        .fill(Color.white)
+                    VStack(spacing: 32) {
+                        Spacer()
+                        
+                        Text("😬")
+                            .font(.largeTitle)
+                        
+                        Text("Something's not quite right!")
+                            .font(.title)
+                        
+                        Text("We're sorry, something went wrong while fetching offerings.\n\nPlease try again")
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.gray)
+                        
+                        Button("Retry") {
+                            viewModel.userDidTapRetryButton()
                         }
+                        Spacer()
                     }
+                    .padding()
+                    .edgesIgnoringSafeArea(.all)
                 }
             }
         }
@@ -80,5 +109,7 @@ struct OfferingsView_Previews: PreviewProvider {
         OfferingsView(viewModel: .init(offeringProvider: Mock.OfferingProvider()))
         
         OfferingsView(viewModel: .init(offeringProvider: Mock.OfferingProvider(state: .loading)))
+        
+        OfferingsView(viewModel: .init(offeringProvider: Mock.OfferingProvider(state: .failure(error: .init(.notAuthenticated)))))
     }
 }
