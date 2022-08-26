@@ -19,11 +19,14 @@ struct OfferingsView: View {
             section(title: "Venues") {
                 LazyVStack(spacing: 16) {
                     ForEach(viewModel.venues) { venue in
-                        Card(imageURL: venue.imageURL,
-                             title: venue.name,
-                             currency: venue.currency,
-                             price: venue.price)
-                        //                        .frame(height: 100)
+                        NavigationLink {
+                            DetailView(viewModel: .init(venue))
+                        } label: {
+                            Card(imageURL: venue.imageURL,
+                                 title: venue.name,
+                                 currency: venue.currency,
+                                 price: venue.price)
+                        }
                     }
                 }
             }
@@ -31,10 +34,14 @@ struct OfferingsView: View {
             section(title: "Exhibitions") {
                 LazyVStack(spacing: 16) {
                     ForEach(viewModel.exhibitions) { exhibition in
-                        Card(imageURL: exhibition.imageURL,
-                             title: exhibition.name,
-                             currency: exhibition.currency,
-                             price: exhibition.price)
+                        NavigationLink {
+                            DetailView(viewModel: .init(exhibition))
+                        } label: {
+                            Card(imageURL: exhibition.imageURL,
+                                 title: exhibition.name,
+                                 currency: exhibition.currency,
+                                 price: exhibition.price)
+                        }
                     }
                 }
             }
