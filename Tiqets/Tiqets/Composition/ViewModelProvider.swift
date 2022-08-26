@@ -16,6 +16,6 @@ class ViewModelProvider: ObservableObject {
     }
     
     var offeringsViewModel: OfferingsView.ViewModel {
-        .init()
+        .init(offeringProvider: root.offeringProvider)
     }
 }
