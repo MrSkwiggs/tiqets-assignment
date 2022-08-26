@@ -23,5 +23,14 @@ public struct Venue: Offering {
         case price = "price"
         case rating = "stars_rating"
     }
+    
+    public init(id: String, name: String, imageURL: URL, currency: String, price: String, rating: Float) {
+        self.id = id
+        self.name = name
+        self.imageURL = imageURL
+        self.currency = currency
+        self.price = price
+        self.rating = rating
+    }
 }
 

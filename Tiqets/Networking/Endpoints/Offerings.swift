@@ -62,6 +62,11 @@ extension TiqetsAPI.Offerings: TiqetsRequest {
             self.venues = venues
             self.exhibitions = exhibitions
         }
+        
+        public init(venues: [Venue], exhibitions: [Exhibition]) {
+            self.venues = venues
+            self.exhibitions = exhibitions
+        }
     }
 }
 

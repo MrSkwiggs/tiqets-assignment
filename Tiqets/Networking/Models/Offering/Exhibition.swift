@@ -27,4 +27,15 @@ public struct Exhibition: Offering {
         case startDate = "start_date"
         case endDate = "end_date"
     }
+    
+    public init(id: String, name: String, imageURL: URL, currency: String, price: String, location: String, startDate: Date, endDate: Date) {
+        self.id = id
+        self.name = name
+        self.imageURL = imageURL
+        self.currency = currency
+        self.price = price
+        self.location = location
+        self.startDate = startDate
+        self.endDate = endDate
+    }
 }
