@@ -7,19 +7,19 @@
 
 import Foundation
 
-public class Offering: Codable, Identifiable, Equatable {
-    public let id: String
-    public let name: String
-    public let imageURL: URL
-    public let currency: String
-    public let price: String
-    
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case imageURL = "image"
-        case currency = "price_currency_code"
-        case price = "price"
-    }
+public protocol Offering: Codable, Identifiable, Equatable {
+    var id: String { get }
+    var name: String { get }
+    var imageURL: URL { get }
+    var currency: String { get }
+    var price: String { get }
+}
+
+internal enum OfferingCodingKeys: String, CodingKey {
+    case id = "id"
+    case name = "name"
+    case imageURL = "image"
+    case currency = "price_currency_code"
+    case price = "price"
 }
 
