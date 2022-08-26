@@ -7,29 +7,53 @@
 
 import Foundation
 import Combine
+import Core
 import Networking
 
 extension OfferingsView {
     class ViewModel: ObservableObject {
+        
         @Published
         var venues: [Venue] = []
         
         @Published
         var exhibitions: [Exhibition] = []
         
-        init() {
-            TiqetsAPI.Offerings.getAll.perform { [weak self] response in
-                guard let self = self else { return }
-                
-                switch response {
-                case .success(let offerings):
-                    self.venues = offerings.venues
-                    self.exhibitions = offerings.exhibitions
+        @Published
+        var isLoading: Bool = true
+        
+        @Published
+        var hasError: Bool = false
+        
+        private let offeringProvider: OfferingProviderUseCase
+        private var subscriptions: [AnyCancellable] = []
+        
+        init(offeringProvider: OfferingProviderUseCase) {
+            self.offeringProvider = offeringProvider
+            
+            offeringProvider
+                .offeringsPublisher
+                .sink { [weak self] state in
+                    guard let self = self else { return }
                     
-                case .failure:
-                    break
+                    switch state {
+                    case .initial, .loading:
+                        self.isLoading = true
+                        
+                    case .success(let response):
+                        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+                            self.venues = response.venues
+                            self.exhibitions = response.exhibitions
+                            self.hasError = false
+                            self.isLoading = false
+                        }
+                        
+                    case .failure:
+                        self.hasError = true
+                        self.isLoading = false
+                    }
                 }
-            }
+                .store(in: &subscriptions)
         }
     }
 }
