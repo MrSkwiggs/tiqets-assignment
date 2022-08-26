@@ -42,6 +42,7 @@ struct Card: View {
             HStack {
                 Text(title)
                     .font(.title)
+                    .foregroundColor(.primary)
                 Spacer()
                 HStack(spacing: 4) {
                     Text(currency)
@@ -49,6 +50,7 @@ struct Card: View {
                         .font(.footnote)
                     Text(price)
                         .bold()
+                        .foregroundColor(.primary)
                 }
             }
             .padding()
