@@ -11,6 +11,10 @@ import Core
 import Networking
 
 struct OfferingsView: View {
+    
+    @EnvironmentObject
+    var viewModelProvider: ViewModelProvider
+    
     @StateObject
     var viewModel: ViewModel
     
@@ -21,7 +25,7 @@ struct OfferingsView: View {
                     LazyVStack(spacing: 16) {
                         ForEach(viewModel.venues) { venue in
                             NavigationLink {
-                                DetailView(viewModel: .init(venue))
+                                DetailView(viewModel: viewModelProvider.detailViewModel(venue))
                             } label: {
                                 Card(imageURL: venue.imageURL,
                                      title: venue.name,
@@ -36,7 +40,7 @@ struct OfferingsView: View {
                     LazyVStack(spacing: 16) {
                         ForEach(viewModel.exhibitions) { exhibition in
                             NavigationLink {
-                                DetailView(viewModel: .init(exhibition))
+                                DetailView(viewModel: viewModelProvider.detailViewModel(exhibition))
                             } label: {
                                 Card(imageURL: exhibition.imageURL,
                                      title: exhibition.name,
