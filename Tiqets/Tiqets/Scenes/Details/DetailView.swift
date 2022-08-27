@@ -99,6 +99,7 @@ struct DetailView: View {
                     .padding(.horizontal)
                 }
             }
+            
             Spacer()
             
             Button {
@@ -115,13 +116,16 @@ struct DetailView: View {
                 .background(
                     RoundedRectangle(cornerRadius: 12)
                         .fill(
-                            viewModel.isFavorite
+                            viewModel.favoriteStateIsLoading
+                            ? Color.gray
+                            : viewModel.isFavorite
                             ? Color.red
                             : Color.blue
                         )
+                        .loading(isLoading: viewModel.favoriteStateIsLoading)
                 )
             }
-            .loading(isLoading: viewModel.favoriteStateIsLoading)
+            .allowsHitTesting(!viewModel.favoriteStateIsLoading)
         }
         .edgesIgnoringSafeArea(.top)
     }
