@@ -17,27 +17,44 @@ struct Card: View {
     let currency: String
     let price: String
     
+    let isFavorite: Bool
+    let userPressedFavoriteButton: () -> Void
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Group {
-                if let imageURL = imageURL {
-                    KFImage(imageURL)
-                        .placeholder { _ in
-                            ShimmeringView {}
+            ZStack(alignment: .topTrailing) {
+                Group {
+                    if let imageURL = imageURL {
+                        KFImage(imageURL)
+                            .placeholder { _ in
+                                ShimmeringView {}
+                            }
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                    } else {
+                        ZStack {
+                            Rectangle()
+                                .fill(Color.gray.opacity(0.3))
+                            Image(systemSymbol: .exclamationmarkArrowTriangle2Circlepath)
+                                .foregroundColor(.secondary)
                         }
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                } else {
-                    ZStack {
-                        Rectangle()
-                            .fill(Color.gray.opacity(0.3))
-                        Image(systemSymbol: .exclamationmarkArrowTriangle2Circlepath)
-                            .foregroundColor(.secondary)
                     }
                 }
+                .frame(height: 200)
+                .clipped()
+                
+                Button {
+                    userPressedFavoriteButton()
+                } label: {
+                    Image(systemSymbol: isFavorite ? .heartFill : .heart)
+                        .padding(20)
+                        .foregroundColor(
+                            isFavorite
+                            ? .red
+                            : .white
+                        )
+                }
             }
-            .frame(height: 200)
-            .clipped()
             
             HStack {
                 Text(title)
@@ -72,7 +89,8 @@ struct Card_Previews: PreviewProvider {
         Card(imageURL: nil,
              title: "Test",
              currency: "EUR",
-             price: "9.90")
+             price: "9.90",
+             isFavorite: true) {}
         .frame(width: 300)
         .padding()
         .previewLayout(.sizeThatFits)
@@ -80,7 +98,8 @@ struct Card_Previews: PreviewProvider {
         Card(imageURL: URL(string: "https://aws-tiqets-cdn.imgix.net/images/content/9d3735fc2e334bc3a3b68822a2e801b4.jpg?w=315&h=210&dpr=2&q=40&fit=crop")!,
              title: "Test",
              currency: "EUR",
-             price: "9.90")
+             price: "9.90",
+             isFavorite: false) {}
         .frame(width: 300)
         .padding()
         .previewLayout(.sizeThatFits)

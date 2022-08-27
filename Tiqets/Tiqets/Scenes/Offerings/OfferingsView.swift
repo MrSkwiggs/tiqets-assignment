@@ -30,7 +30,10 @@ struct OfferingsView: View {
                                 Card(imageURL: venue.imageURL,
                                      title: venue.name,
                                      currency: venue.currency,
-                                     price: venue.price)
+                                     price: venue.price,
+                                     isFavorite: viewModel.favoritesIDs.contains(venue.id)) {
+                                    viewModel.userDidTapFavoriteButton(for: venue.id)
+                                }
                             }
                         }
                     }
@@ -45,7 +48,10 @@ struct OfferingsView: View {
                                 Card(imageURL: exhibition.imageURL,
                                      title: exhibition.name,
                                      currency: exhibition.currency,
-                                     price: exhibition.price)
+                                     price: exhibition.price,
+                                     isFavorite: viewModel.favoritesIDs.contains(exhibition.id)) {
+                                    viewModel.userDidTapFavoriteButton(for: exhibition.id)
+                                }
                             }
                         }
                     }
@@ -87,8 +93,8 @@ struct OfferingsView: View {
         Section {
             Group {
                 if viewModel.isLoading {
-                    ForEach(0..<5) { _ in
-                        Card(imageURL: nil, title: "_____", currency: "EUR", price: "3.5")
+                    ForEach(0..<2) { _ in
+                        Card(imageURL: nil, title: "_____", currency: "EUR", price: "3.5", isFavorite: false) {}
                             .loading(isLoading: true)
                     }
                 } else {
@@ -110,10 +116,13 @@ struct OfferingsView: View {
 
 struct OfferingsView_Previews: PreviewProvider {
     static var previews: some View {
-        OfferingsView(viewModel: .init(offeringProvider: Mock.OfferingProvider()))
+        OfferingsView(viewModel: .init(offeringProvider: Mock.OfferingProvider(),
+                                       favoritesProvider: Mock.FavoritesProvider()))
         
-        OfferingsView(viewModel: .init(offeringProvider: Mock.OfferingProvider(state: .loading)))
+        OfferingsView(viewModel: .init(offeringProvider: Mock.OfferingProvider(state: .loading),
+                                       favoritesProvider: Mock.FavoritesProvider()))
         
-        OfferingsView(viewModel: .init(offeringProvider: Mock.OfferingProvider(state: .failure(error: .init(.notAuthenticated)))))
+        OfferingsView(viewModel: .init(offeringProvider: Mock.OfferingProvider(state: .failure(error: .init(.notAuthenticated))),
+                                       favoritesProvider: Mock.FavoritesProvider()))
     }
 }
