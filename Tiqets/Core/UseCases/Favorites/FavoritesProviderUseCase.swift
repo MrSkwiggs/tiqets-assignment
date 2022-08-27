@@ -36,12 +36,11 @@ public class LocalFavoritesProvider: FavoritesProviderUseCase {
     }()
     
     public func addFavorite(byID id: String) -> NetswiftResponsePublisher<Void> {
-        favoritesIDs.update(with: id)
-        
         let subject: NetswiftResponseSubject<Void> = .init(.initial)
         
         // for demonstration purposes, emit success after a short delay
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) { [weak self] in
+            self?.favoritesIDs.update(with: id)
             subject.send(.success(value: ()))
             subject.send(completion: .finished)
         }
@@ -50,12 +49,11 @@ public class LocalFavoritesProvider: FavoritesProviderUseCase {
     }
     
     public func removeFavorite(byID id: String) -> NetswiftResponsePublisher<Void> {
-        favoritesIDs.remove(id)
-        
         let subject: NetswiftResponseSubject<Void> = .init(.initial)
         
         // for demonstration purposes, emit success after a short delay
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) { [weak self] in
+            self?.favoritesIDs.remove(id)
             subject.send(.success(value: ()))
             subject.send(completion: .finished)
         }
