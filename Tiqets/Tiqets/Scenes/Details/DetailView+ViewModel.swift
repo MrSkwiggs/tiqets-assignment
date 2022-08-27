@@ -28,7 +28,7 @@ extension DetailView {
             title = venue.name
             sections = [
                 .init(type: .price(currency: venue.currency, value: venue.price)),
-                .init(type: .rating(rating: venue.rating))
+                .init(type: .rating(rating: String(format: "%.1f", venue.rating)))
             ]
         }
         
@@ -55,7 +55,7 @@ extension DetailView.ViewModel {
     enum SectionType: Equatable {
         case price(currency: String, value: String)
         case location(value: String)
-        case rating(rating: Float)
+        case rating(rating: String)
         case dateRange(startDate: String, endDate: String)
     }
 }

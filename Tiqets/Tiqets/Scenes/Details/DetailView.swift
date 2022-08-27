@@ -73,7 +73,10 @@ struct DetailView: View {
                                 .foregroundColor(.gray)
                             
                         case .rating(let value):
-                            Text("\(value)")
+                            Text(value)
+                                .foregroundColor(.gray)
+                            + Text(" / 5")
+                                .bold()
                             
                         case .dateRange(let startDate, let endDate):
                             HStack(alignment: .top) {
