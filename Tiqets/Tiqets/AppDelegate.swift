@@ -19,8 +19,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         fatalError("Unhandled scene role \(connectingSceneSession.role)")
     }
-    
-    func applicationDidFinishLaunching(_ application: UIApplication) {
-        print("hello")
-    }
 }
