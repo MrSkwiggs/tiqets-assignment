@@ -59,4 +59,8 @@ public extension TiqetsAPI {
     static var debug: TiqetsAPI {
         .init(performer: NetswiftPerformer(requestPerformer: TiqetsAPIHTTPPerformer()))
     }
+    
+    static var failing: TiqetsAPI {
+        .init(performer: NetswiftPerformer(requestPerformer: MockTiqetsAPIFailingPerformer()))
+    }
 }

@@ -48,12 +48,12 @@ public extension Composition {
     }
     
     /// Uses local values (doesn't depend on API availability) - greater testing & implementation flexibility
-    static var debug: Composition {
+    static func debug(failingNetwork: Bool = false) -> Composition {
         
         let offeringsProvider: OfferingProviderUseCase = OfferingProvider()
         let favoriteOfferingsProvider: FavoritesProviderUseCase = LocalFavoritesProvider()
         
-        return .init(tiqetsAPI: .debug,
+        return .init(tiqetsAPI: failingNetwork ? .failing : .debug,
                      dateTimeProvider: Mock.DateTimeProvider.firstOfJune2021,
                      networkPathMonitor: NetworkPathMonitor(),
                      offeringProvider: offeringsProvider,
