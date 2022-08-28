@@ -36,27 +36,17 @@ public class LocalFavoritesProvider: FavoritesProviderUseCase {
     }()
     
     public func addFavorite(byID id: String) -> NetswiftResponsePublisher<Void> {
-        let subject: NetswiftResponseSubject<Void> = .init(.initial)
-        
-        // for demonstration purposes, emit success after a short delay
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) { [weak self] in
-            self?.favoritesIDs.update(with: id)
-            subject.send(.success(value: ()))
-            subject.send(completion: .finished)
-        }
-        
-        return subject.eraseToAnyPublisher()
+        favoritesIDs.update(with: id)
+        // writing to keystore is instant, return a completed publisher
+        return NetswiftResponseSubject(.success(value: ())).eraseToAnyPublisher()
     }
     
     public func removeFavorite(byID id: String) -> NetswiftResponsePublisher<Void> {
         let subject: NetswiftResponseSubject<Void> = .init(.initial)
         
-        // for demonstration purposes, emit success after a short delay
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) { [weak self] in
-            self?.favoritesIDs.remove(id)
-            subject.send(.success(value: ()))
-            subject.send(completion: .finished)
-        }
+        favoritesIDs.remove(id)
+        subject.send(.success(value: ()))
+        subject.send(completion: .finished)
         
         return subject.eraseToAnyPublisher()
     }
@@ -66,7 +56,7 @@ public extension Mock {
     class FavoritesProvider: FavoritesProviderUseCase {
         
         @Published
-        private var favoritesIDs: Set<String> = ["123", "321"]
+        private var favoritesIDs: Set<String> = ["1"]
         
         public init() {}
         
@@ -79,17 +69,29 @@ public extension Mock {
         }
         
         public func addFavorite(byID id: String) -> NetswiftResponsePublisher<Void> {
-            favoritesIDs.update(with: id)
+            let subject: NetswiftResponseSubject<Void> = .init(.initial)
+            
+            // for demonstration purposes, emit success after a short delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) { [weak self] in
+                self?.favoritesIDs.update(with: id)
+                subject.send(.success(value: ()))
+                subject.send(completion: .finished)
+            }
             
             return NetswiftResponseSubject(.success(value: ())).eraseToAnyPublisher()
         }
         
         public func removeFavorite(byID id: String) -> NetswiftResponsePublisher<Void> {
-            favoritesIDs.remove(id)
+            let subject: NetswiftResponseSubject<Void> = .init(.initial)
+            
+            // for demonstration purposes, emit success after a short delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) { [weak self] in
+                self?.favoritesIDs.remove(id)
+                subject.send(.success(value: ()))
+                subject.send(completion: .finished)
+            }
             
             return NetswiftResponseSubject(.success(value: ())).eraseToAnyPublisher()
         }
-        
-        
     }
 }

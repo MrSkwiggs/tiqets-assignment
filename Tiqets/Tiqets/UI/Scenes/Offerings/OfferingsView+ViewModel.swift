@@ -50,18 +50,14 @@ extension OfferingsView {
                         self.hasError = false
                         
                     case .success(let response):
-                        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-                            self.venues = response.venues
-                            self.exhibitions = response.exhibitions
-                            self.hasError = false
-                            self.isLoading = false
-                        }
+                        self.venues = response.venues
+                        self.exhibitions = response.exhibitions
+                        self.hasError = false
+                        self.isLoading = false
                         
                     case .failure:
-                        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-                            self.hasError = true
-                            self.isLoading = false
-                        }
+                        self.hasError = true
+                        self.isLoading = false
                     }
                 }
                 .store(in: &subscriptions)
