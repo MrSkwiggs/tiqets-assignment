@@ -15,7 +15,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
             
         #if DEBUG
-        let viewModelProvider = ViewModelProvider(root: .debug)
+        let viewModelProvider = ViewModelProvider(root: .debug())
+        
+        // Uncomment for fake network delays
+//        let viewModelProvider = ViewModelProvider(root: .mock)
+        
+        // Uncomment for fake network failure
+//        let viewModelProvider = ViewModelProvider(root: .debug(failingNetwork: true))
+        
         #else
         let viewModelProvider = ViewModelProvider(root: .main)
         #endif
