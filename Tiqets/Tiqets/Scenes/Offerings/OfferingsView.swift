@@ -85,7 +85,6 @@ struct OfferingsView: View {
                 }
             }
         }
-        .navigationTitle("Offerings")
     }
     
     private func section<Content: View>(title: String,

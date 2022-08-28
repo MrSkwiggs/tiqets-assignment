@@ -14,21 +14,25 @@ struct RootView: View {
     var viewModelProvider: ViewModelProvider
     
     var body: some View {
-        NavigationView {
-            TabView {
+        TabView {
+            NavigationView {
                 OfferingsView(viewModel: viewModelProvider.offeringsViewModel)
-                    .tabItem {
-                        Label("Offerings", systemSymbol: .listBullet)
-                    }
-                Text("Favorites")
-                    .tabItem {
-                        Label("Favorites", systemSymbol: .heart)
-                    }
+                    .navigationTitle("Offerings")
+            }.tabItem {
+                Label("Offerings", systemSymbol: .listBullet)
+            }
+            
+            NavigationView {
+                OfferingsView(viewModel: viewModelProvider.favoriteOfferingsViewModel)
+                    .navigationTitle("Favorites")
+            }
+            .tabItem {
+                Label("Favorites", systemSymbol: .heart)
             }
         }
-        .navigationViewStyle(.stack)
     }
 }
+
 
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
