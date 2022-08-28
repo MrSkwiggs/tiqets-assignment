@@ -61,7 +61,7 @@ struct OfferingsView: View {
             if viewModel.hasError {
                 ZStack {
                     Rectangle()
-                        .fill(Color.ui(.highlight))
+                        .fill(Color.ui(.background))
                     VStack(spacing: 32) {
                         Spacer()
                         

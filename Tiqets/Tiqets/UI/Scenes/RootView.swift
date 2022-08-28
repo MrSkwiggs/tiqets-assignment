@@ -21,6 +21,7 @@ struct RootView: View {
             }.tabItem {
                 Label("Offerings", systemSymbol: .listBullet)
             }
+            .navigationViewStyle(.stack)
             
             NavigationView {
                 OfferingsView(viewModel: viewModelProvider.favoriteOfferingsViewModel)
@@ -29,6 +30,7 @@ struct RootView: View {
             .tabItem {
                 Label("Favorites", systemSymbol: .heart)
             }
+            .navigationViewStyle(.stack)
         }
         .background(
             Color.ui(.background)
