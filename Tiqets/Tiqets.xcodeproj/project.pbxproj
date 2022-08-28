@@ -58,6 +58,7 @@
 		8DDB64AF28BB7CBC00F22DA0 /* Color+Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB64AE28BB7CBC00F22DA0 /* Color+Brand.swift */; };
 		8DDB64B128BB7CD200F22DA0 /* Gradient+Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB64B028BB7CD200F22DA0 /* Gradient+Brand.swift */; };
 		8DDB64B328BB858100F22DA0 /* MockTiqetsAPIFailingPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB64B228BB858100F22DA0 /* MockTiqetsAPIFailingPerformer.swift */; };
+		8DDB64B528BBA83400F22DA0 /* CardSelectionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB64B428BBA83400F22DA0 /* CardSelectionStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +157,7 @@
 		8DDB64AE28BB7CBC00F22DA0 /* Color+Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Brand.swift"; sourceTree = "<group>"; };
 		8DDB64B028BB7CD200F22DA0 /* Gradient+Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient+Brand.swift"; sourceTree = "<group>"; };
 		8DDB64B228BB858100F22DA0 /* MockTiqetsAPIFailingPerformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTiqetsAPIFailingPerformer.swift; sourceTree = "<group>"; };
+		8DDB64B428BBA83400F22DA0 /* CardSelectionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSelectionStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 			children = (
 				8D0DD5A628B915D900F10ACD /* Placeholder.swift */,
 				8D0DD5B428B9386700F10ACD /* Card.swift */,
+				8DDB64B428BBA83400F22DA0 /* CardSelectionStyle.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				8D67EDBA28B901F60030271F /* OfferingsView.swift in Sources */,
 				8D67EDC428B90D5B0030271F /* OfferingsView+ViewModel.swift in Sources */,
 				8D67EDC028B905BE0030271F /* AppDelegate.swift in Sources */,
+				8DDB64B528BBA83400F22DA0 /* CardSelectionStyle.swift in Sources */,
 				8D67EDB028B9005D0030271F /* SceneDelegate.swift in Sources */,
 				8D0DD5A728B915D900F10ACD /* Placeholder.swift in Sources */,
 				8D0DD5B528B9386700F10ACD /* Card.swift in Sources */,
