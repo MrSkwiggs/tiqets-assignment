@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let rootView = RootView()
+            let rootView = RootView(viewModel: viewModelProvider.rootViewModel)
                 .environmentObject(viewModelProvider)
             window.rootViewController = UIHostingController(rootView: rootView)
             

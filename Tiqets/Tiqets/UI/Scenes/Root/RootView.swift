@@ -7,17 +7,32 @@
 
 import SwiftUI
 import SFSafeSymbols
+import Core
 
 struct RootView: View {
     
     @EnvironmentObject
     var viewModelProvider: ViewModelProvider
     
+    @StateObject
+    var viewModel: ViewModel
+    
     var body: some View {
         TabView {
             NavigationView {
-                OfferingsView(viewModel: viewModelProvider.offeringsViewModel)
-                    .navigationTitle("Offerings")
+                VStack(alignment: .leading) {
+                    Group {
+                        Text("Activities available on ")
+                            .foregroundColor(.text(.secondary))
+                        + Text("\(viewModel.currentDate)")
+                            .bold()
+                            .foregroundColor(.text())
+                    }
+                    .padding()
+                    OfferingsView(viewModel: viewModelProvider.offeringsViewModel)
+                }
+                .background(Color.ui(.background))
+                .navigationTitle("Offerings")
             }.tabItem {
                 Label("Offerings", systemSymbol: .listBullet)
             }
@@ -41,7 +56,7 @@ struct RootView: View {
 
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView()
+        RootView(viewModel: .init(dateTimeProvider: Mock.DateTimeProvider.firstOfJune2021))
             .environmentObject(ViewModelProvider(root: .mock))
     }
 }

@@ -19,7 +19,7 @@ public extension Mock {
     class DateTimeProvider: DateTimeProviderUseCase {
         public let currentDate: Date
         
-        init(date: Date = .init()) {
+        public init(date: Date = .init()) {
             currentDate = date
         }
         

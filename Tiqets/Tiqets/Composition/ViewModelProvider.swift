@@ -16,6 +16,10 @@ class ViewModelProvider: ObservableObject {
         self.root = root
     }
     
+    var rootViewModel: RootView.ViewModel {
+        .init(dateTimeProvider: root.dateTimeProvider)
+    }
+    
     var offeringsViewModel: OfferingsView.ViewModel {
         .init(offeringProvider: root.offeringProvider, favoritesProvider: root.favoritesProvider)
     }
