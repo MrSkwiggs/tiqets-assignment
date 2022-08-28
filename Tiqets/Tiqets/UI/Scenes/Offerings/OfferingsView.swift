@@ -23,16 +23,21 @@ struct OfferingsView: View {
             ScrollView {
                 section(title: "Venues") {
                     LazyVStack(spacing: 16) {
-                        ForEach(viewModel.venues) { venue in
-                            NavigationLink {
-                                DetailView(viewModel: viewModelProvider.detailViewModel(venue))
-                            } label: {
-                                Card(imageURL: venue.imageURL,
-                                     title: venue.name,
-                                     currency: venue.currency,
-                                     price: venue.price,
-                                     isFavorite: viewModel.favoritesIDs.contains(venue.id)) {
-                                    viewModel.userDidTapFavoriteButton(for: venue.id)
+                        if viewModel.venues.isEmpty {
+                            Text("No venues")
+                                .foregroundColor(.text(.secondary))
+                        } else {
+                            ForEach(viewModel.venues) { venue in
+                                NavigationLink {
+                                    DetailView(viewModel: viewModelProvider.detailViewModel(venue))
+                                } label: {
+                                    Card(imageURL: venue.imageURL,
+                                         title: venue.name,
+                                         currency: venue.currency,
+                                         price: venue.price,
+                                         isFavorite: viewModel.favoritesIDs.contains(venue.id)) {
+                                        viewModel.userDidTapFavoriteButton(for: venue.id)
+                                    }
                                 }
                             }
                         }
@@ -41,16 +46,21 @@ struct OfferingsView: View {
                 
                 section(title: "Exhibitions") {
                     LazyVStack(spacing: 16) {
-                        ForEach(viewModel.exhibitions) { exhibition in
-                            NavigationLink {
-                                DetailView(viewModel: viewModelProvider.detailViewModel(exhibition))
-                            } label: {
-                                Card(imageURL: exhibition.imageURL,
-                                     title: exhibition.name,
-                                     currency: exhibition.currency,
-                                     price: exhibition.price,
-                                     isFavorite: viewModel.favoritesIDs.contains(exhibition.id)) {
-                                    viewModel.userDidTapFavoriteButton(for: exhibition.id)
+                        if viewModel.exhibitions.isEmpty {
+                            Text("No exhibitions")
+                                .foregroundColor(.text(.secondary))
+                        } else {
+                            ForEach(viewModel.exhibitions) { exhibition in
+                                NavigationLink {
+                                    DetailView(viewModel: viewModelProvider.detailViewModel(exhibition))
+                                } label: {
+                                    Card(imageURL: exhibition.imageURL,
+                                         title: exhibition.name,
+                                         currency: exhibition.currency,
+                                         price: exhibition.price,
+                                         isFavorite: viewModel.favoritesIDs.contains(exhibition.id)) {
+                                        viewModel.userDidTapFavoriteButton(for: exhibition.id)
+                                    }
                                 }
                             }
                         }
