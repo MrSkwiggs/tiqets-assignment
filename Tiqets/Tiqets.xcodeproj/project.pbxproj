@@ -53,6 +53,7 @@
 		8DDB64A228BB5A7300F22DA0 /* DateTimeProviderUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB64A128BB5A7300F22DA0 /* DateTimeProviderUseCase.swift */; };
 		8DDB64A528BB5F2200F22DA0 /* OfferingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB64A428BB5F2200F22DA0 /* OfferingProvider.swift */; };
 		8DDB64A728BB5F4200F22DA0 /* Mock+OfferingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB64A628BB5F4200F22DA0 /* Mock+OfferingProvider.swift */; };
+		8DDB64A928BB5F8400F22DA0 /* FavoriteOfferingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB64A828BB5F8400F22DA0 /* FavoriteOfferingsProvider.swift */; };
 		8DDB64AB28BB604D00F22DA0 /* Publisher+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB64AA28BB604D00F22DA0 /* Publisher+State.swift */; };
 /* End PBXBuildFile section */
 
@@ -147,6 +148,7 @@
 		8DDB64A128BB5A7300F22DA0 /* DateTimeProviderUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeProviderUseCase.swift; sourceTree = "<group>"; };
 		8DDB64A428BB5F2200F22DA0 /* OfferingProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferingProvider.swift; sourceTree = "<group>"; };
 		8DDB64A628BB5F4200F22DA0 /* Mock+OfferingProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mock+OfferingProvider.swift"; sourceTree = "<group>"; };
+		8DDB64A828BB5F8400F22DA0 /* FavoriteOfferingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteOfferingsProvider.swift; sourceTree = "<group>"; };
 		8DDB64AA28BB604D00F22DA0 /* Publisher+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+State.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -370,7 +372,6 @@
 		8D67EDB828B901D50030271F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				8D67EDC228B90D420030271F /* Favorites */,
 				8D67EDBB28B902090030271F /* RootView.swift */,
 				8D67EDC128B90D3C0030271F /* Offerings */,
 				8D0DD5BA28B947F000F10ACD /* Details */,
@@ -387,16 +388,10 @@
 			path = Offerings;
 			sourceTree = "<group>";
 		};
-		8D67EDC228B90D420030271F /* Favorites */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Favorites;
-			sourceTree = "<group>";
-		};
 		8DDB64A328BB5EE500F22DA0 /* Offerings */ = {
 			isa = PBXGroup;
 			children = (
+				8DDB64A828BB5F8400F22DA0 /* FavoriteOfferingsProvider.swift */,
 				8DDB64A628BB5F4200F22DA0 /* Mock+OfferingProvider.swift */,
 				8DDB64A428BB5F2200F22DA0 /* OfferingProvider.swift */,
 				8D0DD5A828B927D600F10ACD /* OfferingProviderUseCase.swift */,
@@ -601,6 +596,7 @@
 				8DDB64AB28BB604D00F22DA0 /* Publisher+State.swift in Sources */,
 				8D67EDAE28B900190030271F /* NetworkPathMonitorUseCase.swift in Sources */,
 				8D1FBF2328BA04B3008C08E7 /* FavoritesProviderUseCase.swift in Sources */,
+				8DDB64A928BB5F8400F22DA0 /* FavoriteOfferingsProvider.swift in Sources */,
 				8DDB64A228BB5A7300F22DA0 /* DateTimeProviderUseCase.swift in Sources */,
 				8D1FBF2928BA06B4008C08E7 /* AnyOptional.swift in Sources */,
 				8D1FBF2728BA069D008C08E7 /* UserDefaultKeyStore.swift in Sources */,
