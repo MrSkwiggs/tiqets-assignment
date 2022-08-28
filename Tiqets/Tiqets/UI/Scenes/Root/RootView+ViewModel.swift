@@ -14,7 +14,7 @@ extension RootView {
         
         private static let dateFormatter: DateFormatter = {
             let formatter = DateFormatter()
-            formatter.dateFormat = "EEEE, MMMM d YYYY"
+            formatter.dateFormat = "EEEE, d MMMM YYYY"
             return formatter
         }()
         
