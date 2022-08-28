@@ -16,10 +16,10 @@ struct ShimmerConfiguration {
     
     static let `default` = ShimmerConfiguration(
         gradient: Gradient(stops: [
-            .init(color: Color.clear, location: 0),
-            .init(color: Color.gray.opacity(0.3), location: 0.3),
-            .init(color: Color.gray.opacity(0.3), location: 0.7),
-            .init(color: Color.clear, location: 1),
+            .init(color: .clear, location: 0),
+            .init(color: .ui(.highlight).opacity(0.3), location: 0.3),
+            .init(color: .ui(.highlight).opacity(0.3), location: 0.7),
+            .init(color: .clear, location: 1),
         ]),
         initialLocation: (start: UnitPoint(x: -1, y: 0.5), end: .leading),
         finalLocation: (start: .trailing, end: UnitPoint(x: 2, y: 0.5)),

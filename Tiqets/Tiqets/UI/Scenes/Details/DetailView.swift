@@ -41,9 +41,9 @@ struct DetailView: View {
                                 } else {
                                     ZStack {
                                         Rectangle()
-                                            .fill(Color.gray.opacity(0.3))
+                                            .fill(Color.ui(.disabled))
                                         Image(systemSymbol: .exclamationmarkArrowTriangle2Circlepath)
-                                            .foregroundColor(.secondary)
+                                            .foregroundColor(.ui(.background))
                                     }
                                 }
                             }
@@ -59,38 +59,42 @@ struct DetailView: View {
                                 HStack {
                                     Text(currency)
                                         .font(.footnote)
-                                        .foregroundColor(.gray)
+                                        .foregroundColor(.text(.secondary))
                                     
                                     Text(value)
                                         .font(.headline)
                                         .bold()
+                                        .foregroundColor(.text())
                                 }
                                 
                             case .location(let value):
                                 Text(value)
                                     .font(.title2)
-                                    .foregroundColor(.gray)
+                                    .foregroundColor(.text(.secondary))
                                 
                             case .rating(let value):
                                 Text(value)
-                                    .foregroundColor(.gray)
+                                    .foregroundColor(.text(.secondary))
                                 + Text(" / 5")
                                     .bold()
+                                    .foregroundColor(.text())
                                 
                             case .dateRange(let startDate, let endDate):
                                 HStack(alignment: .top) {
                                     VStack {
                                         Text("Starts")
-                                            .foregroundColor(.gray)
+                                            .foregroundColor(.text(.secondary))
                                         Text(startDate)
                                             .bold()
+                                            .foregroundColor(.text())
                                     }
                                     Spacer()
                                     VStack {
                                         Text("Ends")
-                                            .foregroundColor(.gray)
+                                            .foregroundColor(.text(.secondary))
                                         Text(endDate)
                                             .bold()
+                                            .foregroundColor(.text())
                                     }
                                 }
                             }
@@ -117,17 +121,19 @@ struct DetailView: View {
                     RoundedRectangle(cornerRadius: 12)
                         .fill(
                             viewModel.favoriteStateIsLoading
-                            ? Color.gray
+                            ? Color.ui(.disabled)
                             : viewModel.isFavorite
-                            ? Color.red
-                            : Color.blue
+                            ? Color.ui(.danger)
+                            : Color.ui(.info)
                         )
                         .loading(isLoading: viewModel.favoriteStateIsLoading)
                 )
             }
             .allowsHitTesting(!viewModel.favoriteStateIsLoading)
+            .padding()
         }
         .edgesIgnoringSafeArea(.top)
+        .background(Color.ui(.background))
     }
 }
 

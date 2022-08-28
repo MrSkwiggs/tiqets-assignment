@@ -61,19 +61,21 @@ struct OfferingsView: View {
             if viewModel.hasError {
                 ZStack {
                     Rectangle()
-                        .fill(Color.white)
+                        .fill(Color.ui(.highlight))
                     VStack(spacing: 32) {
                         Spacer()
                         
                         Text("😬")
                             .font(.largeTitle)
+                            .foregroundColor(.text())
                         
                         Text("Something's not quite right!")
                             .font(.title)
+                            .foregroundColor(.text())
                         
                         Text("We're sorry, something went wrong while fetching offerings.\n\nPlease try again")
                             .multilineTextAlignment(.center)
-                            .foregroundColor(.gray)
+                            .foregroundColor(.text(.secondary))
                         
                         Button("Retry") {
                             viewModel.userDidTapRetryButton()
@@ -85,6 +87,7 @@ struct OfferingsView: View {
                 }
             }
         }
+        .background(Color.ui(.background))
     }
     
     private func section<Content: View>(title: String,
@@ -105,7 +108,7 @@ struct OfferingsView: View {
             HStack {
                 Text(title.uppercased())
                     .font(.headline)
-                    .foregroundColor(.gray.opacity(0.5))
+                    .foregroundColor(.text(.secondary))
                 Spacer()
             }
             .padding(.horizontal)

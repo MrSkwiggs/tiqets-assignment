@@ -30,6 +30,9 @@ struct RootView: View {
                 Label("Favorites", systemSymbol: .heart)
             }
         }
+        .background(
+            Color.ui(.background)
+        )
     }
 }
 
