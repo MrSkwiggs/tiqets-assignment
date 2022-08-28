@@ -70,15 +70,10 @@ struct Card: View {
             }
             .padding()
         }
-        .cornerRadius(20)
         .background(
-            RoundedRectangle(cornerRadius: 20)
-                .fill(Color.ui(.highlight))
-                .shadow(color: .ui(.shadow),
-                        radius: 8,
-                        x: 0,
-                        y: 4)
+            Color.ui(.highlight)
         )
+        .cornerRadius(20)
     }
 }
 
