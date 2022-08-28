@@ -12,7 +12,7 @@ This enforces separation of duties & helps mitigate code-spaghettification, but 
 ### Core
 
 Contains most `UseCases` and their implementations, as well as mocks for testing & debugging.
-Conform to the assignment, I've included a use case for providing the current `Date`, which is hard-coded to the 1st of June 2021 in Mock implementations.
+Conform to the assignment, I've included a use case for providing the current `Date`, which is hard-coded to the 1st of June 2021 in Mock implementations (used as default for demonstration purposes).
 
 ### Networking
 
