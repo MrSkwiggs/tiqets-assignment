@@ -20,6 +20,10 @@ class ViewModelProvider: ObservableObject {
         .init(offeringProvider: root.offeringProvider, favoritesProvider: root.favoritesProvider)
     }
     
+    var favoriteOfferingsViewModel: OfferingsView.ViewModel {
+        .init(offeringProvider: root.favoriteOfferingsProvider, favoritesProvider: root.favoritesProvider)
+    }
+    
     func detailViewModel(_ venue: Venue) -> DetailView.ViewModel {
         .init(venue, favoritesProvider: root.favoritesProvider)
     }
