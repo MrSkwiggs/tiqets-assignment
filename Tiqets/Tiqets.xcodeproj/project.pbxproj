@@ -50,6 +50,7 @@
 		8D67EDBC28B902090030271F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D67EDBB28B902090030271F /* RootView.swift */; };
 		8D67EDC028B905BE0030271F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D67EDBF28B905BE0030271F /* AppDelegate.swift */; };
 		8D67EDC428B90D5B0030271F /* OfferingsView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D67EDC328B90D5B0030271F /* OfferingsView+ViewModel.swift */; };
+		8DDB64A228BB5A7300F22DA0 /* DateTimeProviderUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB64A128BB5A7300F22DA0 /* DateTimeProviderUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +141,7 @@
 		8D67EDBB28B902090030271F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		8D67EDBF28B905BE0030271F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D67EDC328B90D5B0030271F /* OfferingsView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OfferingsView+ViewModel.swift"; sourceTree = "<group>"; };
+		8DDB64A128BB5A7300F22DA0 /* DateTimeProviderUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeProviderUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +335,7 @@
 				8D67ED9B28B8FCF50030271F /* NetworkPathMonitorUseCase.swift */,
 				8D0DD5A828B927D600F10ACD /* OfferingProviderUseCase.swift */,
 				8D1FBF2A28BA073F008C08E7 /* Favorites */,
+				8DDB64A128BB5A7300F22DA0 /* DateTimeProviderUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -580,6 +583,7 @@
 			files = (
 				8D67EDAE28B900190030271F /* NetworkPathMonitorUseCase.swift in Sources */,
 				8D1FBF2328BA04B3008C08E7 /* FavoritesProviderUseCase.swift in Sources */,
+				8DDB64A228BB5A7300F22DA0 /* DateTimeProviderUseCase.swift in Sources */,
 				8D1FBF2928BA06B4008C08E7 /* AnyOptional.swift in Sources */,
 				8D1FBF2728BA069D008C08E7 /* UserDefaultKeyStore.swift in Sources */,
 				8D67EDAD28B8FF720030271F /* Composition.swift in Sources */,
