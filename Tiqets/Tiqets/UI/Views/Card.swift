@@ -21,7 +21,7 @@ struct Card: View {
     let userPressedFavoriteButton: () -> Void
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 0) {
             ZStack(alignment: .topTrailing) {
                 Group {
                     if let imageURL = imageURL {
@@ -48,17 +48,13 @@ struct Card: View {
                 } label: {
                     Image(systemSymbol: isFavorite ? .heartFill : .heart)
                         .padding(20)
-                        .foregroundColor(
-                            isFavorite
-                            ? .ui(.accent)
-                            : .static(.light)
-                        )
+                        .foregroundColor(.static(.light))
                 }
             }
             
-            HStack {
+            HStack(alignment: .center) {
                 Text(title)
-                    .font(.title)
+                    .font(.title3)
                     .foregroundColor(.text())
                     .multilineTextAlignment(.leading)
                     .lineLimit(1)

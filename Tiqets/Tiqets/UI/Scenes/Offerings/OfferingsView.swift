@@ -72,18 +72,18 @@ struct OfferingsView: View {
                 ZStack {
                     Rectangle()
                         .fill(Color.ui(.background))
-                    VStack(spacing: 32) {
+                    VStack(spacing: 16) {
                         Spacer()
                         
-                        Text("😬")
+                        Text(Image(systemSymbol: .exclamationmarkIcloudFill))
                             .font(.largeTitle)
-                            .foregroundColor(.text())
+                            .foregroundColor(.text(.secondary))
                         
                         Text("Something's not quite right!")
-                            .font(.title)
+                            .font(.title3)
                             .foregroundColor(.text())
                         
-                        Text("We're sorry, something went wrong while fetching offerings.\n\nPlease try again")
+                        Text("We're sorry, something went wrong while fetching offerings")
                             .multilineTextAlignment(.center)
                             .foregroundColor(.text(.secondary))
                         
@@ -113,7 +113,8 @@ struct OfferingsView: View {
                     content()
                 }
             }
-            .padding()
+            .padding(.horizontal)
+            .padding(.bottom)
         } header: {
             HStack {
                 Text(title.uppercased())
@@ -122,6 +123,7 @@ struct OfferingsView: View {
                 Spacer()
             }
             .padding(.horizontal)
+            .padding(.top)
         }
     }
 }

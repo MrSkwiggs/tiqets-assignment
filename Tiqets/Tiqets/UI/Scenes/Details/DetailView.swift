@@ -52,11 +52,13 @@ struct DetailView: View {
                         .clipped()
                     }
                     
-                    VStack(alignment: .leading, spacing: 8) {
+                    VStack(alignment: .leading, spacing: 16) {
                         ForEach(viewModel.sections) { section in
                             switch section.type {
                             case .price(let currency, let value):
                                 HStack {
+                                    Image(systemSymbol: .walletPass)
+                                        .foregroundColor(.text())
                                     Text(currency)
                                         .font(.footnote)
                                         .foregroundColor(.text(.secondary))
@@ -68,33 +70,49 @@ struct DetailView: View {
                                 }
                                 
                             case .location(let value):
-                                Text(value)
-                                    .font(.title2)
+                                HStack {
+                                    Image(systemSymbol: .mappinCircle)
+                                        .foregroundColor(.text())
+                                    Text(value)
+                                        .font(.title2)
                                     .foregroundColor(.text(.secondary))
+                                }
                                 
                             case .rating(let value):
-                                Text(value)
-                                    .foregroundColor(.text(.secondary))
-                                + Text(" / 5")
-                                    .bold()
+                                HStack {
+                                    Image(systemSymbol: .star)
+                                        .foregroundColor(.text())
+                                    Text(value)
+                                        .foregroundColor(.text(.secondary))
+                                    + Text(" / 5")
+                                        .bold()
                                     .foregroundColor(.text())
+                                }
                                 
                             case .dateRange(let startDate, let endDate):
-                                HStack(alignment: .top) {
-                                    VStack {
-                                        Text("Starts")
-                                            .foregroundColor(.text(.secondary))
-                                        Text(startDate)
-                                            .bold()
+                                VStack(alignment: .leading) {
+                                    HStack {
+                                        Image(systemSymbol: .arrowLeftToLine)
                                             .foregroundColor(.text())
+                                        VStack(alignment: .leading) {
+                                            Text("Starts")
+                                                .foregroundColor(.text(.secondary))
+                                            Text(startDate)
+                                                .bold()
+                                                .foregroundColor(.text())
+                                        }
                                     }
                                     Spacer()
-                                    VStack {
-                                        Text("Ends")
-                                            .foregroundColor(.text(.secondary))
-                                        Text(endDate)
-                                            .bold()
+                                    HStack {
+                                        Image(systemSymbol: .arrowRightToLine)
                                             .foregroundColor(.text())
+                                        VStack(alignment: .leading) {
+                                            Text("Ends")
+                                                .foregroundColor(.text(.secondary))
+                                            Text(endDate)
+                                                .bold()
+                                                .foregroundColor(.text())
+                                        }
                                     }
                                 }
                             }
@@ -109,27 +127,31 @@ struct DetailView: View {
             Button {
                 viewModel.userDidTapFavoriteButton()
             } label: {
-                Text(
-                    viewModel.isFavorite
-                    ? "Remove from favorites"
-                    : "Add to favorites"
-                )
-                .bold()
-                .foregroundColor(.white)
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(
-                            viewModel.favoriteStateIsLoading
-                            ? Color.ui(.disabled)
-                            : viewModel.isFavorite
-                            ? Color.ui(.danger)
-                            : Color.ui(.info)
-                        )
-                        .loading(isLoading: viewModel.favoriteStateIsLoading)
-                )
+                HStack {
+                    Spacer()
+                    Text(
+                        viewModel.isFavorite
+                        ? "Remove from favorites"
+                        : "Add to favorites"
+                    )
+                    .bold()
+                    .foregroundColor(.white)
+                    .padding()
+                    Spacer()
+                }
             }
             .allowsHitTesting(!viewModel.favoriteStateIsLoading)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(
+                        viewModel.favoriteStateIsLoading
+                        ? Color.ui(.disabled)
+                        : viewModel.isFavorite
+                        ? Color.ui(.danger)
+                        : Color.ui(.info)
+                    )
+                    .loading(isLoading: viewModel.favoriteStateIsLoading)
+            )
             .padding()
         }
         .edgesIgnoringSafeArea(.top)
@@ -140,6 +162,9 @@ struct DetailView: View {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         DetailView(viewModel: .init(Mock.Offerings.Exhibitions.erraticGrowth,
+                                    favoritesProvider: Mock.FavoritesProvider()))
+        
+        DetailView(viewModel: .init(Mock.Offerings.Venues.moco,
                                     favoritesProvider: Mock.FavoritesProvider()))
     }
 }
