@@ -57,6 +57,7 @@
 		8DDB64AB28BB604D00F22DA0 /* Publisher+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB64AA28BB604D00F22DA0 /* Publisher+State.swift */; };
 		8DDB64AF28BB7CBC00F22DA0 /* Color+Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB64AE28BB7CBC00F22DA0 /* Color+Brand.swift */; };
 		8DDB64B128BB7CD200F22DA0 /* Gradient+Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB64B028BB7CD200F22DA0 /* Gradient+Brand.swift */; };
+		8DDB64B328BB858100F22DA0 /* MockTiqetsAPIFailingPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB64B228BB858100F22DA0 /* MockTiqetsAPIFailingPerformer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +155,7 @@
 		8DDB64AA28BB604D00F22DA0 /* Publisher+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+State.swift"; sourceTree = "<group>"; };
 		8DDB64AE28BB7CBC00F22DA0 /* Color+Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Brand.swift"; sourceTree = "<group>"; };
 		8DDB64B028BB7CD200F22DA0 /* Gradient+Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient+Brand.swift"; sourceTree = "<group>"; };
+		8DDB64B228BB858100F22DA0 /* MockTiqetsAPIFailingPerformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTiqetsAPIFailingPerformer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +338,7 @@
 				8D1BF35828B8114300639CFE /* Models */,
 				8D1BF35028B80F6800639CFE /* TiqetsAPI.swift */,
 				8D67ED8B28B8E9B00030271F /* TiqetsAPIPerformer.swift */,
+				8DDB64B228BB858100F22DA0 /* MockTiqetsAPIFailingPerformer.swift */,
 				8D1BF35C28B812C300639CFE /* TiqetsEndpoint.swift */,
 			);
 			path = Networking;
@@ -603,6 +606,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DDB64B328BB858100F22DA0 /* MockTiqetsAPIFailingPerformer.swift in Sources */,
 				8D67ED8428B8E38C0030271F /* Offerings.swift in Sources */,
 				8D67ED8728B8E38C0030271F /* Offering.swift in Sources */,
 				8D67ED8C28B8E9B00030271F /* TiqetsAPIPerformer.swift in Sources */,
