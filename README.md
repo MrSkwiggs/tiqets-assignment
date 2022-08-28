@@ -5,13 +5,16 @@ The app is built using `Swift`, `SwiftUI` & `Combine`.
 
 ## Architecture
 The app is built using an MVVM architecture, where Models & other controllers (business logic) are nested in separate targets (Core & Networking).
-This enforces separation of duties & helps mitigate code-spaghettification.
+This enforces separation of duties & helps mitigate code-spaghettification, but also allows for reuse in other projects.
 
 ### Core
 Contains most `UseCases` and their implementations, as well as mocks for testing & debugging.
+Conform to the assignment, I've included a use case for providing the current `Date`, which is hard-coded to the 1st of June 2021 in Mock implementations. 
 
 ### Networking
 Contains the config files for API requests as well as mocks for testing & debugging.
+I've used my own, open-source, networking package [Netswift](https://github.com/MrSkwiggs/Netswift). 
+It's an opinionated framework I've built myself over the last couple of years and have used in my own apps as well as at [OneFit](https://one.fit), which allows me to be very structured but flexible when it comes to implemented an app's networking layer.
 
 ## UI
 
