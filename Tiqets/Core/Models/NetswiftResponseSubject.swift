@@ -9,4 +9,4 @@ import Foundation
 import Netswift
 import Combine
 
-internal typealias NetswiftResponseSubject<T: Codable> = CurrentValueSubject<State<T, NetswiftError>, Never>
+internal typealias NetswiftResponseSubject<T> = CurrentValueSubject<State<T, NetswiftError>, Never>

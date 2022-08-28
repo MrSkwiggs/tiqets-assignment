@@ -9,4 +9,4 @@ import Foundation
 import Netswift
 import Combine
 
-public typealias NetswiftResponsePublisher<T: Codable> = AnyPublisher<State<T, NetswiftError>, Never>
+public typealias NetswiftResponsePublisher<T> = AnyPublisher<State<T, NetswiftError>, Never>

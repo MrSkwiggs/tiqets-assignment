@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Networking
 import Core
 
 class ViewModelProvider: ObservableObject {
@@ -16,6 +17,18 @@ class ViewModelProvider: ObservableObject {
     }
     
     var offeringsViewModel: OfferingsView.ViewModel {
-        .init(offeringProvider: root.offeringProvider)
+        .init(offeringProvider: root.offeringProvider, favoritesProvider: root.favoritesProvider)
+    }
+    
+    var favoriteOfferingsViewModel: OfferingsView.ViewModel {
+        .init(offeringProvider: root.favoriteOfferingsProvider, favoritesProvider: root.favoritesProvider)
+    }
+    
+    func detailViewModel(_ venue: Venue) -> DetailView.ViewModel {
+        .init(venue, favoritesProvider: root.favoritesProvider)
+    }
+    
+    func detailViewModel(_ exhibition: Exhibition) -> DetailView.ViewModel {
+        .init(exhibition, favoritesProvider: root.favoritesProvider)
     }
 }
