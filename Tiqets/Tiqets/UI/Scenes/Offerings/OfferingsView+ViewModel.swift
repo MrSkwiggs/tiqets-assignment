@@ -31,6 +31,9 @@ extension OfferingsView {
         @Published
         var favoritesIDs: Set<String> = []
         
+        @Published
+        var presentedDetails: DetailView.ViewModel? = nil
+        
         private let offeringProvider: OfferingProviderUseCase
         private let favoritesProvider: FavoritesProviderUseCase
         private var subscriptions: [AnyCancellable] = []

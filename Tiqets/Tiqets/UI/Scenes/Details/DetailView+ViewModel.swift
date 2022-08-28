@@ -11,7 +11,7 @@ import Networking
 import Core
 
 extension DetailView {
-    class ViewModel: ObservableObject {
+    class ViewModel: ObservableObject, Identifiable {
         
         let imageURL: URL?
         let title: String

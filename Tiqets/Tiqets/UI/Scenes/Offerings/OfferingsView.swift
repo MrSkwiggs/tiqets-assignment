@@ -28,8 +28,8 @@ struct OfferingsView: View {
                                 .foregroundColor(.text(.secondary))
                         } else {
                             ForEach(viewModel.venues) { venue in
-                                NavigationLink {
-                                    DetailView(viewModel: viewModelProvider.detailViewModel(venue))
+                                Button {
+                                    viewModel.presentedDetails = viewModelProvider.detailViewModel(venue)
                                 } label: {
                                     Card(imageURL: venue.imageURL,
                                          title: venue.name,
@@ -39,6 +39,7 @@ struct OfferingsView: View {
                                         viewModel.userDidTapFavoriteButton(for: venue.id)
                                     }
                                 }
+                                .cardSelectionStyle
                             }
                         }
                     }
@@ -51,8 +52,8 @@ struct OfferingsView: View {
                                 .foregroundColor(.text(.secondary))
                         } else {
                             ForEach(viewModel.exhibitions) { exhibition in
-                                NavigationLink {
-                                    DetailView(viewModel: viewModelProvider.detailViewModel(exhibition))
+                                Button {
+                                    viewModel.presentedDetails = viewModelProvider.detailViewModel(exhibition)
                                 } label: {
                                     Card(imageURL: exhibition.imageURL,
                                          title: exhibition.name,
@@ -62,6 +63,7 @@ struct OfferingsView: View {
                                         viewModel.userDidTapFavoriteButton(for: exhibition.id)
                                     }
                                 }
+                                .cardSelectionStyle
                             }
                         }
                     }
@@ -75,7 +77,7 @@ struct OfferingsView: View {
                     VStack(spacing: 16) {
                         Spacer()
                         
-                        Text(Image(systemSymbol: .exclamationmarkIcloudFill))
+                        Image(systemSymbol: .exclamationmarkIcloudFill)
                             .font(.largeTitle)
                             .foregroundColor(.text(.secondary))
                         
@@ -83,7 +85,7 @@ struct OfferingsView: View {
                             .font(.title3)
                             .foregroundColor(.text())
                         
-                        Text("We're sorry, something went wrong while fetching offerings")
+                        Text("We're sorry, something went wrong while fetching offerings.")
                             .multilineTextAlignment(.center)
                             .foregroundColor(.text(.secondary))
                         
@@ -98,6 +100,9 @@ struct OfferingsView: View {
             }
         }
         .background(Color.ui(.background))
+        .sheet(item: $viewModel.presentedDetails) { viewModel in
+            DetailView(viewModel: viewModel)
+        }
     }
     
     private func section<Content: View>(title: String,
